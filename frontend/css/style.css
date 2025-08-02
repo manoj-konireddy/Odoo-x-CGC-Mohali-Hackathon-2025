@@ -1,0 +1,310 @@
+/* Custom styles for QuickDesk */
+
+.navbar-brand {
+    font-weight: bold;
+    color: #007bff !important;
+}
+
+.sidebar {
+    min-height: 100vh;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.main-content {
+    min-height: 100vh;
+}
+
+.ticket-card {
+    transition: transform 0.2s;
+    cursor: pointer;
+}
+
+.ticket-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.status-badge {
+    font-size: 0.8em;
+}
+
+.priority-badge {
+    font-size: 0.8em;
+}
+
+/* Status colors */
+.status-open {
+    background-color: #17a2b8;
+}
+
+.status-in_progress {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.status-resolved {
+    background-color: #28a745;
+}
+
+.status-closed {
+    background-color: #6c757d;
+}
+
+/* Priority colors */
+.priority-low {
+    background-color: #28a745;
+}
+
+.priority-medium {
+    background-color: #ffc107;
+    color: #000;
+}
+
+.priority-high {
+    background-color: #fd7e14;
+}
+
+.priority-urgent {
+    background-color: #dc3545;
+}
+
+/* Hero section */
+.hero-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.hero-section h1 {
+    color: white;
+}
+
+.hero-section .lead {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Step numbers */
+.step-number {
+    width: 50px;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Loading spinner */
+#loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+/* Form styles */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 10px;
+}
+
+/* Ticket list styles */
+.ticket-list-item {
+    border-left: 4px solid #007bff;
+    margin-bottom: 1rem;
+    transition: all 0.2s;
+}
+
+.ticket-list-item:hover {
+    border-left-color: #0056b3;
+    background-color: #f8f9fa;
+}
+
+/* Vote buttons */
+.vote-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.vote-btn {
+    border: none;
+    background: none;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.vote-btn:hover {
+    background-color: #f8f9fa;
+}
+
+.vote-btn.voted {
+    background-color: #007bff;
+    color: white;
+}
+
+.vote-score {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Comment styles */
+.comment-item {
+    border-left: 3px solid #dee2e6;
+    padding-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.comment-internal {
+    border-left-color: #ffc107;
+    background-color: #fff3cd;
+}
+
+.comment-meta {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .sidebar {
+        display: none !important;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem !important;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem !important;
+    }
+}
+
+/* Animation classes */
+.fade-in {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utility classes */
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.text-truncate-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.border-start-primary {
+    border-left: 4px solid #007bff !important;
+}
+
+.border-start-success {
+    border-left: 4px solid #28a745 !important;
+}
+
+.border-start-warning {
+    border-left: 4px solid #ffc107 !important;
+}
+
+.border-start-danger {
+    border-left: 4px solid #dc3545 !important;
+}
+
+/* Ticket action buttons */
+.ticket-card .btn-group-sm .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.ticket-card:hover .btn-outline-danger {
+    opacity: 1;
+}
+
+.ticket-card .btn-outline-danger {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+/* Vote buttons styling */
+.vote-btn {
+    background: none;
+    border: none;
+    color: #6c757d;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.vote-btn:hover {
+    color: #007bff;
+}
+
+.vote-btn.voted {
+    color: #007bff;
+    font-weight: bold;
+}
+
+.vote-score {
+    font-weight: bold;
+    margin: 0 0.5rem;
+    color: #495057;
+}
+
+/* Navigation controls */
+.navigation-controls {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem !important;
+}
+
+.navigation-controls .btn {
+    transition: all 0.2s ease;
+}
+
+.navigation-controls .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.navigation-controls .btn:not(:disabled):hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#nav-current-page {
+    font-size: 0.85rem;
+    color: #6c757d;
+}

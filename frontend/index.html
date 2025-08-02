@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickDesk - Help Desk System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#" onclick="showPage('home')">
+                <i class="fas fa-headset"></i> QuickDesk
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item" id="nav-dashboard" style="display: none;">
+                        <a class="nav-link" href="#" onclick="showPage('dashboard')">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                </ul>
+                
+                <ul class="navbar-nav">
+                    <li class="nav-item" id="nav-login">
+                        <a class="nav-link" href="#" onclick="showPage('login')">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </a>
+                    </li>
+                    <li class="nav-item" id="nav-register">
+                        <a class="nav-link" href="#" onclick="showPage('register')">
+                            <i class="fas fa-user-plus"></i> Register
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" id="nav-user" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> <span id="username-display"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" onclick="showPage('profile')"><i class="fas fa-user-cog"></i> Profile</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar (shown when logged in) -->
+            <nav class="col-md-2 d-none d-md-block sidebar" id="sidebar" style="display: none !important;">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showPage('dashboard')">
+                                <i class="fas fa-tachometer-alt"></i> Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showPage('create-ticket')">
+                                <i class="fas fa-plus"></i> Create Ticket
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" onclick="showPage('my-tickets')">
+                                <i class="fas fa-ticket-alt"></i> My Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item" id="sidebar-all-tickets" style="display: none;">
+                            <a class="nav-link" href="#" onclick="showPage('all-tickets')">
+                                <i class="fas fa-tasks"></i> All Tickets
+                            </a>
+                        </li>
+                        <li class="nav-item" id="sidebar-users" style="display: none;">
+                            <a class="nav-link" href="#" onclick="showPage('users')">
+                                <i class="fas fa-users"></i> Users
+                            </a>
+                        </li>
+                        <li class="nav-item" id="sidebar-categories" style="display: none;">
+                            <a class="nav-link" href="#" onclick="showPage('categories')">
+                                <i class="fas fa-tags"></i> Categories
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content area -->
+            <main class="col-md-10 ms-sm-auto main-content" id="main-content">
+                <div class="container-fluid py-4">
+                    <!-- Alert container -->
+                    <div id="alert-container"></div>
+
+                    <!-- Navigation buttons -->
+                    <div class="navigation-controls mb-3" id="navigation-controls" style="display: none;">
+                        <div class="btn-group" role="group" aria-label="Navigation">
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="nav-back-btn" onclick="goBack()" disabled title="Go Back">
+                                <i class="fas fa-arrow-left"></i> Back
+                            </button>
+                            <button type="button" class="btn btn-outline-secondary btn-sm" id="nav-forward-btn" onclick="goForward()" disabled title="Go Forward">
+                                Forward <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                        <small class="text-muted ms-2" id="nav-current-page"></small>
+                    </div>
+
+                    <!-- Page content will be loaded here -->
+                    <div id="page-content">
+                        <!-- Home page content will be loaded by default -->
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Loading spinner -->
+    <div id="loading-spinner" class="d-none">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
